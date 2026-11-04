@@ -2,9 +2,10 @@
 
 import Navigation from "#lib/components/Navigation.svelte";
 import Hero from "#lib/assets/hero.jpg"
-import card1 from "#lib/assets/bgmi.jpeg"
 import card2 from "#lib/assets/mlbb.jpeg"
 import card3 from "#lib/assets/magic_chess.jpeg"
+import banner from "#lib/assets/bei-banner-bg.jpg"
+import character from "#lib/assets/bgmi-removebg-preview.png"
 
 </script>
 
@@ -15,8 +16,8 @@ import card3 from "#lib/assets/magic_chess.jpeg"
 </section>
 
 <section class="games_section">
-    <div class="card">
-        <img alt="Hero_section" src={card1} />
+    <div class="card1" style:background-image={`url(${banner})`}>
+        <img alt="Hero_section" src={character} class="character"/>
     </div>
     <div class="card">
         <img alt="Hero_section" src={card2} />
@@ -37,6 +38,22 @@ import card3 from "#lib/assets/magic_chess.jpeg"
         display: flex;
         justify-content: space-evenly;
         margin: 2em;
+    }
+
+    .card1{
+        border-radius:  5.5rem 0.8rem;
+        height: 50vh;
+        width: 45vh;
+        overflow-y: visible;
+    }
+
+    .character{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        bottom: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
     }
 
     .card img{
