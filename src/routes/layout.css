@@ -1,3 +1,8 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@theme {
+  --font-caveat: "Caveat", serif;
+  --font-marker: "Permanent Marker", serif;
+}

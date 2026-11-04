@@ -2,6 +2,8 @@
 	import './layout.css';
 	import favicon from '#lib/assets/favicon.svg';
 	import type { LayoutProps } from './$types';
+  import '@fontsource/permanent-marker';
+  import '@fontsource-variable/caveat';
 
 	let { children }: LayoutProps = $props();
 </script>
