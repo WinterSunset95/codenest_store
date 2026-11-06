@@ -4,7 +4,7 @@ import { Search } from "@lucide/svelte"
 
 </script>
 
-<div class="w-full backdrop-blur-lg fixed bg-blue-600/10 flex items-center justify-center text-white">
+<div class="w-full backdrop-blur-lg fixed bg-blue-800/30 flex items-center justify-center text-white top-0 z-50">
   <div class="px-4 py-2 max-w-6xl w-full h-full flex items-center justify-center gap-8">
     <div class="flex flex-col font-marker">
       <span>

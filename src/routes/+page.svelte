@@ -1,24 +1,26 @@
 <script lang="ts">
 
 import Navigation from "#lib/components/Navigation.svelte";
-import Hero from "#lib/assets/hero.jpg"
-import Hero2 from "#lib/assets/hero2.jpeg"
-import Hero3 from "#lib/assets/hero3.jpeg"
-import Hero4 from "#lib/assets/hero4.jpeg"
+import Hero from "#lib/components/Hero.svelte";
 import mlbb from "#lib/assets/mlbb.png"
 import magic from "#lib/assets/magic_chess.png"
 import bgmi from "#lib/assets/bgmi.png"
+import bg from "#lib/assets/homepagebg.webp";
 
 
 
 
 </script>
 
+<div class="fixed -z-10 top-0 bottom-0 w-full h-full overflow-hidden">
+  <img src={bg} alt="" class="w-full h-full object-fill homepage-bg" />
+</div>
+
 <Navigation />
 
-<section class="hero_section">
-   <img alt="Hero_section" src={Hero} />
-</section>
+<div class="mt-16"></div>
+
+<Hero />
 
 <section class="games_section">
     <div class="card">
@@ -43,12 +45,6 @@ import bgmi from "#lib/assets/bgmi.png"
 </section>
 
 <style>
-    .hero_section {
-       width: 100%;
-       margin: 0;
-       padding: 0;
-    }
-
     .games_section{
         display: flex;
         justify-content: space-evenly;
@@ -62,6 +58,22 @@ import bgmi from "#lib/assets/bgmi.png"
     
     .card{
         width: 250px;
+    }
+
+    @keyframes bg-animate {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .homepage-bg {
+      animation: bg-animate 10s ease-in-out infinite;
     }
 
 </style>

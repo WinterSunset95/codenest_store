@@ -12,4 +12,6 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children()}
+<main class="relative w-screen h-screen overflow-auto">
+  {@render children()}
+</main>
