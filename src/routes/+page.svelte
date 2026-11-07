@@ -76,6 +76,27 @@ import bg from "#lib/assets/homepagebg.webp";
       animation: bg-animate 10s ease-in-out infinite;
     }
 
+    @media (max-width: 600px){
+       .games_section{
+           display: grid;
+           grid-auto-flow: column;
+           grid-auto-columns: 45vw;
+           gap: 16px;
+           overflow-x: auto;
+           padding: 2rem;
+        }
+
+        .games_section::-webkit-scrollbar{
+            display: none;
+        }
+
+        .card img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+    }
+
 </style>
 
 
