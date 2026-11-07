@@ -1,11 +1,13 @@
 <script lang="ts">
 
 import Navigation from "#lib/components/Navigation.svelte";
-import Hero from "#lib/components/Hero.svelte";
+import Hero from "./Hero.svelte";
+import CardsSection from "./CardsSection.svelte";
 import mlbb from "#lib/assets/mlbb.png"
 import magic from "#lib/assets/magic_chess.png"
 import bgmi from "#lib/assets/bgmi.png"
 import bg from "#lib/assets/homepagebg.webp";
+import Footer from "#lib/components/Footer.svelte";
 
 
 
@@ -21,6 +23,8 @@ import bg from "#lib/assets/homepagebg.webp";
 <div class="mt-16"></div>
 
 <Hero />
+
+<!-- <CardsSection /> -->
 
 <section class="games_section">
     <div class="card">
@@ -43,6 +47,8 @@ import bg from "#lib/assets/homepagebg.webp";
         <a href="#"><img alt="Hero_section" src={magic} /></a>
     </div>
 </section>
+
+<Footer />
 
 <style>
     .games_section{
