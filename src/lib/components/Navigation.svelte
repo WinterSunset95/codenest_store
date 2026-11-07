@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { Search, HamburgerIcon, MenuIcon } from "@lucide/svelte"
+import { Search, MenuIcon } from "@lucide/svelte"
 
 let shown = $state(false);
 
