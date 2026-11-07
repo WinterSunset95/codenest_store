@@ -24,7 +24,7 @@ import Footer from "#lib/components/Footer.svelte";
 
 <Hero />
 
-<!-- <CardsSection /> -->
+<CardsSection />
 
 <section class="games_section">
     <div class="card">
