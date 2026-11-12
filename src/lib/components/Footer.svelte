@@ -1,3 +1,7 @@
+<script>
+     import '@fortawesome/fontawesome-free/css/all.min.css';
+</script>
+
 <footer id="contact">
     <div class="footer-grid">
         <div class="footer-col">
@@ -14,7 +18,11 @@
         </div>
         <div class="footer-col">
             <h4>Contact</h4>
-            <li>facebook</li>
+            <div class="icon">
+            <li><i class="fa-brands fa-square-facebook"></i></li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+            <li><i class="fa-brands fa-whatsapp"></i></li>
+            </div>
         </div>
         <div class="footer-col">
             <h4>Developed by</h4>
@@ -40,9 +48,20 @@
       gap: 60px;
       margin-bottom: 60px;
     }
+
+    .logo{
+        font-size: 2rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #D4AA04;
+    }
     
-    .footer-col h4 { color: var(--gold); margin-bottom: 25px; font-size: 1.1rem; letter-spacing: 1px; }
-    .footer-col p, .footer-col li { color: var(--text-muted); margin-bottom: 12px; list-style: none; font-size: 0.9rem; }
+    .footer-col h4 { color: #D4AA04; margin-bottom: 25px; font-size: 1.1rem; letter-spacing: 1px; }
+    .footer-col p, .footer-col li { color: var(--text-muted); margin-bottom: 12px; list-style: none; font-size: 1rem; }
+    .footer-col .icon{
+        display: flex;
+        gap: 1.2rem;
+    }
+
     
     @media (max-width: 992px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
