@@ -1,3 +1,6 @@
+import { mockHomePageCards } from "#lib/mocks/common.ts";
+
+import type { HomePageCard } from "#lib/types/common.ts";
 import { mlbbUserReqErr, type MlbbUser } from "#lib/types/mlbb.ts";
 
 export const fetchMlbbAccount = async (id: string, server: string): Promise<MlbbUser> => {
@@ -10,4 +13,8 @@ export const fetchMlbbAccount = async (id: string, server: string): Promise<Mlbb
     console.log(e)
     return mlbbUserReqErr
   }
+}
+
+export const fetchHomePageCards = async (): Promise<HomePageCard[]> => {
+  return mockHomePageCards;
 }
