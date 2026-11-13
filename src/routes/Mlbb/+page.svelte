@@ -16,7 +16,13 @@
         <h2>MOBA LEGENDS: 5V5! (GLOBAL)</h2>
     </div>
     <div class="left_section2"></div>
-    <div class="right_section"></div>
+    <div class="right_section">
+        <div class="section1">
+
+        </div>
+        <div class="section2"></div>
+        <div class="section3"></div>
+    </div>
 </div>
 
 <style>
@@ -30,6 +36,40 @@
     .left_section1{
         grid-column: 1;
         grid-row: 1;
+    }
+
+    .left_section1 h2{
+        color: white;
+        font-size: 2rem;
+    }
+
+    .left_section2{
+        grid-column: 1;
+        grid-row: 2;
+        background-color: white;
+        height: 130vh;
+    }
+
+    .right_section {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        display: grid;
+        gap: 20px;
+    }
+
+    .section1{
+        height: 30vh;
+        background-color: #4f4f4f;
+    }
+    
+    .section2{
+        height: 100vh;
+        background-color: #4f4f4f;
+    }
+
+    .section3{
+        height: 40vh;
+        background-color: #4f4f4f;
     }
 
 </style>
