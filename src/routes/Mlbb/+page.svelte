@@ -4,8 +4,17 @@
     import banner from "#lib/assets/games-banner.webp"
     import monthly from "#lib/assets/monthly.webp"
     import weekly from "#lib/assets/weekly.webp"
+    import D1 from "#lib/assets/diamond1.webp"
+    import D2 from "#lib/assets/diamond2.webp"
+    import D3 from "#lib/assets/diamond3.webp"
+    import D4 from "#lib/assets/diamond4.webp"
+    import D5 from "#lib/assets/diamond5.webp"
+    import D6 from "#lib/assets/diamond6.webp"
+    import D7 from "#lib/assets/diamond7.webp"
+    import Pass from "#lib/assets/pass.webp"
     let Id = $state('');
-    let server = $state('')
+    let server = $state('');
+    let Email = $state('');
 </script>
 
 <div class="fixed -z-10 top-0 bottom-0 w-full h-full overflow-hidden">
@@ -88,32 +97,205 @@
             <p>Double Diamond Bonus is available if you have not purchased the 50/100/250/500 pack on any platform before. Note: This is not a first recharge benefit on Recharge Arena. Please check the in-game Diamond section for availability before purchasing.</p>
             <div class="card_container">
                 <div class="card">
-                    <img src={monthly} alt="">
-                    <p>MONTHLY EPIC BUNDLE</p>
-                    <p>410</p>
-                    <p class="discount">450</p>
+                    <img src={D3} alt="">
+                    <p>100 DIAMONDS (50+50)</p>
+                    <p>84</p>
+                    <p class="discount">99</p>
                 </div>
                 <div class="card">
-                    <img src={weekly} alt="">
-                    <p>WEEKLY EPIC BUNDLE</p>
-                    <p>410</p>
-                    <p class="discount">450</p>
+                    <img src={D4} alt="">
+                    <p>300 DIAMONDS (150+150)</p>
+                    <p>245</p>
+                    <p class="discount">295</p>
                 </div>
                 <div class="card">
-                    <img src={monthly} alt="">
-                    <p>MONTHLY EPIC BUNDLE</p>
-                    <p>410</p>
-                    <p class="discount">450</p>
+                    <img src={D5} alt="">
+                    <p>500 DIAMONDS (250+250)</p>
+                    <p>385</p>
+                    <p class="discount">495</p>
                 </div>
                 <div class="card">
-                    <img src={weekly} alt="">
-                    <p>WEEKLY EPIC BUNDLE</p>
-                    <p>410</p>
-                    <p class="discount">450</p>
+                    <img src={D6} alt="">
+                    <p>1000 DIAMONDS (500+500)</p>
+                    <p>799</p>
+                    <p class="discount">980</p>
+                </div>
+            </div>
+            <h4 style="font-weight: bold;">Weekly Diamond Pass</h4>
+            <p>Weekly Diamond Pass offers instant Diamonds and Crystal of Aurora at the best value.</p>
+            <div class="card_container">
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>1X WEEKLY PASS</p>
+                    <p>155</p>
+                    <p class="discount">195</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>2X WEEKLY PASS</p>
+                    <p>310</p>
+                    <p class="discount">390</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>3X WEEKLY PASS</p>
+                    <p>465</p>
+                    <p class="discount">585</p>
+                </div>
+            </div>
+            <h4 style="font-weight: bold;">Diamonds</h4>
+            <p>Normal Diamonds</p>
+            <div class="card_container">
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>1X WEEKLY PASS</p>
+                    <p>155</p>
+                    <p class="discount">195</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>2X WEEKLY PASS</p>
+                    <p>310</p>
+                    <p class="discount">390</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>3X WEEKLY PASS</p>
+                    <p>465</p>
+                    <p class="discount">585</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>1X WEEKLY PASS</p>
+                    <p>155</p>
+                    <p class="discount">195</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>2X WEEKLY PASS</p>
+                    <p>310</p>
+                    <p class="discount">390</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>3X WEEKLY PASS</p>
+                    <p>465</p>
+                    <p class="discount">585</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>1X WEEKLY PASS</p>
+                    <p>155</p>
+                    <p class="discount">195</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>2X WEEKLY PASS</p>
+                    <p>310</p>
+                    <p class="discount">390</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>3X WEEKLY PASS</p>
+                    <p>465</p>
+                    <p class="discount">585</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>1X WEEKLY PASS</p>
+                    <p>155</p>
+                    <p class="discount">195</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>2X WEEKLY PASS</p>
+                    <p>310</p>
+                    <p class="discount">390</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>3X WEEKLY PASS</p>
+                    <p>465</p>
+                    <p class="discount">585</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>1X WEEKLY PASS</p>
+                    <p>155</p>
+                    <p class="discount">195</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>2X WEEKLY PASS</p>
+                    <p>310</p>
+                    <p class="discount">390</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>3X WEEKLY PASS</p>
+                    <p>465</p>
+                    <p class="discount">585</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>1X WEEKLY PASS</p>
+                    <p>155</p>
+                    <p class="discount">195</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>2X WEEKLY PASS</p>
+                    <p>310</p>
+                    <p class="discount">390</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>3X WEEKLY PASS</p>
+                    <p>465</p>
+                    <p class="discount">585</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>1X WEEKLY PASS</p>
+                    <p>155</p>
+                    <p class="discount">195</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>2X WEEKLY PASS</p>
+                    <p>310</p>
+                    <p class="discount">390</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>3X WEEKLY PASS</p>
+                    <p>465</p>
+                    <p class="discount">585</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>1X WEEKLY PASS</p>
+                    <p>155</p>
+                    <p class="discount">195</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>2X WEEKLY PASS</p>
+                    <p>310</p>
+                    <p class="discount">390</p>
+                </div>
+                <div class="card">
+                    <img src={Pass} alt="">
+                    <p>3X WEEKLY PASS</p>
+                    <p>465</p>
+                    <p class="discount">585</p>
                 </div>
             </div>
         </div>
-        <div class="section3"></div>
+        <div class="section3">
+            <h2>Email Address</h2>
+            <input type="text" bind:value={Email} placeholder="Enter Email">
+        </div>
     </div>
 </div>
 
@@ -168,7 +350,7 @@
         border-radius: 1rem;
     }
 
-    .section1 input{
+    input{
         width: 100%;
         padding: 1.3rem;
         margin: 1rem 0;
@@ -177,24 +359,27 @@
     }
     
     .section2{
-        height: 100vh;
+        height: 220vh;
         background-color: #151a3b;
         padding: 3rem;
         color: white;
     }
 
     .card_container{
-        display: flex;
-        gap: 2rem;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        gap: 0.5rem;
+        font-size: 0.85rem;
     }
 
     .card{
         width: 15vh;
-        height: 23vh;
+        height: 21vh;
+        font-size: 0.85rem;
         background-color: #1e234a;
         color: white;
         text-align: center;
-        padding: 1.1rem;
+        padding: 1rem;
     }
 
     .discount{
@@ -206,6 +391,8 @@
     .section3{
         height: 40vh;
         background-color: #151a3b;
+        padding: 2rem;
+        color: white;
     }
 
 </style>
