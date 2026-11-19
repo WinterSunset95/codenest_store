@@ -441,23 +441,31 @@
 
     @media (max-width: 768px) {
     .container {
-        display: flex;
-        flex-direction: column;
+        display: grid !important;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "top"
+            "mid"
+            "last";
         padding: 2rem;
         margin: 0;
         margin-top: 5rem;
     }
 
     .left_section1 {
-        order: 1;
+        grid-area: top;
+        width: 100%;
     }
 
-    .right-section {
-        order: 2;
+    .right_section {
+        grid-area: mid;
+        width: 100%;
     }
 
     .left_section2 {
-        order: 3;
+        grid-area: last;
+        width: 100%;
+        margin-bottom: 2rem;
     }
 
     .section1{
