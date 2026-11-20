@@ -22,8 +22,8 @@
 </script>
 
 <div class="fixed -z-10 top-0 bottom-0 w-full h-full overflow-hidden">
-    <img src={bg} alt="" class="w-full h-full object-fill mlbb_bg" />
-  </div>
+  <img src={bg} alt="" class="w-full h-full object-fill mlbb_bg" />
+</div>
   
 <Navigation />
 
@@ -440,80 +440,95 @@
     }
 
     @media (max-width: 768px) {
-    .container {
-        display: grid !important;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "top"
-            "mid"
-            "last";
-        padding: 2rem;
-        margin: 0;
-        margin-top: 5rem;
+      .container {
+          display: grid !important;
+          grid-template-columns: 1fr;
+          grid-template-areas:
+              "top"
+              "mid"
+              "last";
+          padding: 2rem;
+          margin: 0;
+          margin-top: 5rem;
+      }
+
+      .left_section1 {
+          grid-area: top;
+          width: 100%;
+      }
+
+      .right_section {
+          grid-area: mid;
+          width: 100%;
+      }
+
+      .left_section2 {
+          grid-area: last;
+          width: 100%;
+          margin-bottom: 2rem;
+      }
+
+      .section1{
+          height: 30vh;
+          background-color: #151a3b;
+          padding: 2rem;
+          border-radius: 1rem;
+      }
+
+      input{
+          width: 100%;
+          padding: 1.3rem;
+          margin: 1rem 0;
+          overflow: hidden;
+          border-radius: 1.3rem;
+      }
+      
+      .section2{
+          height: 100%;
+          background-color: #151a3b;
+          padding: 3rem;
+          color: white;
+          border-radius: 1rem;
+      }
+
+      .card_container{
+          display: grid;
+          grid-template-columns: 50% 50%;
+          gap: 0.5rem;
+          font-size: 0.85rem;
+          margin: 1rem;
+      }
+
+      .card{
+          width: 15vh;
+          height: 23vh;
+          font-size: 0.85rem;
+          background-color: #1e234a;
+          color: white;
+          text-align: center;
+          padding: .2rem;
+      }
+
+      .payment_container{
+          display: flex;
+          gap: 1rem;
+      }
     }
 
-    .left_section1 {
-        grid-area: top;
-        width: 100%;
+    @keyframes imageAnimation {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
 
-    .right_section {
-        grid-area: mid;
-        width: 100%;
+    .mlbb_bg {
+      animation: imageAnimation 5s ease-in-out infinite;
     }
-
-    .left_section2 {
-        grid-area: last;
-        width: 100%;
-        margin-bottom: 2rem;
-    }
-
-    .section1{
-        height: 30vh;
-        background-color: #151a3b;
-        padding: 2rem;
-        border-radius: 1rem;
-    }
-
-    input{
-        width: 100%;
-        padding: 1.3rem;
-        margin: 1rem 0;
-        overflow: hidden;
-        border-radius: 1.3rem;
-    }
-    
-    .section2{
-        height: 100%;
-        background-color: #151a3b;
-        padding: 3rem;
-        color: white;
-        border-radius: 1rem;
-    }
-
-    .card_container{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        gap: 0.5rem;
-        font-size: 0.85rem;
-        margin: 1rem;
-    }
-
-    .card{
-        width: 15vh;
-        height: 23vh;
-        font-size: 0.85rem;
-        background-color: #1e234a;
-        color: white;
-        text-align: center;
-        padding: .2rem;
-    }
-
-    .payment_container{
-        display: flex;
-        gap: 1rem;
-    }
-
-}
 
 </style>
