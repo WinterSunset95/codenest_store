@@ -1,6 +1,6 @@
 <script>
     import Navigation from "#lib/components/Navigation.svelte";
-    import bg from "#lib/assets/mlbb_bg.jpg"
+    import bg from "#lib/assets/mlbb_bg.jpeg"
     import banner from "#lib/assets/games-banner.webp"
     import monthly from "#lib/assets/monthly.webp"
     import weekly from "#lib/assets/weekly.webp"
@@ -337,6 +337,10 @@
         grid-column: 1;
         grid-row: 1;
         color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 1.5rem;
     }
 
     .left_section1 h2{
@@ -349,6 +353,10 @@
         grid-row: 2;
         color: white;
         height: 135vh;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 1.5rem;
     }
 
     .left_section2 h1{
@@ -465,6 +473,7 @@
       .left_section2 {
           grid-area: last;
           width: 100%;
+          height: 100%;
           margin-bottom: 2rem;
       }
 
