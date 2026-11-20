@@ -1,6 +1,8 @@
 <script lang="ts">
 
 import { Search, MenuIcon } from "@lucide/svelte"
+import { authStore } from "#lib/stores/auth.svelte.ts";
+import { Avatar, AvatarImage } from "./ui/avatar";
 
 let shown = $state(false);
 
@@ -31,9 +33,15 @@ let shown = $state(false);
         <Search />
         <input type="text" class="border-0 bg-transparent text-white p-0 grow" placeholder="Search MLBB Diamond package"/>
       </div>
-      <button class="bg-cyan-500 rounded-lg py-2 px-2 md:py-2 md:px-4 text-sm md:text-lg h-full">
-        Sign In
-      </button>
+      {#if authStore.loading || authStore.isAuthenticated == false}
+        <a class="bg-cyan-500 rounded-lg py-2 px-2 md:py-2 md:px-4 text-sm md:text-lg h-full" href="/auth">
+          Sign In
+        </a>
+      {:else}
+        <Avatar>
+          <AvatarImage src={authStore.user?.photoURL} />
+        </Avatar>
+      {/if}
     </div>
   </div>
 </div>

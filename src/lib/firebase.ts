@@ -25,8 +25,10 @@ export const auth = getAuth(app)
 auth.tenantId = import.meta.env.VITE_FIREBASE_AUTH_TENANT_ID;
 
 if (import.meta.env.DEV) {
-  console.log("LOCAL YAY")
-  connectAuthEmulator(auth, "http://127.0.0.1:9099");
-  connectFirestoreEmulator(db, '127.0.0.1', 8080);
+  try {
+    connectAuthEmulator(auth, "http://127.0.0.1:9099");
+    connectFirestoreEmulator(db, '127.0.0.1', 8080);
+  } catch (e) {
+    alert("Failed to connect to firebase emulator")
+  }
 }
-console.log("DEFINITELY NOT LOCAL")

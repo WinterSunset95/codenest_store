@@ -22,3 +22,20 @@ import Footer from "#lib/components/Footer.svelte";
 
 <Footer />
 
+<style>
+@keyframes imageAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.homepage-bg {
+  animation: imageAnimation 5s ease-in-out infinite;
+}
+</style>
