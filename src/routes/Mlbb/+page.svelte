@@ -336,10 +336,10 @@
     .left_section1{
         grid-column: 1;
         grid-row: 1;
+        color: white;
     }
 
     .left_section1 h2{
-        color: white;
         font-size: 1.5rem;
         font-weight: bold;
     }
