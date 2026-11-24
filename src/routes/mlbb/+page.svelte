@@ -27,53 +27,11 @@
   
 <Navigation />
 
+<div class="banner">
+    <img src={banner} alt="">
+</div>
+
 <div class="container">
-    <div class="left_section1">
-        <img src={banner} alt="">
-        <h2>MOBA LEGENDS:5V5! (GLOBAL)</h2>
-        <h4>How to find MOBA LEGENDS: 5V5! (GLOBAL) Player ID?</h4>
-        <p>To find your User ID, tap your profile on the top left of the main menu. It’s shown below your character name. Example: 12345678(1234).</p>
-    </div>
-    <div class="left_section2">
-        <h4>Moba Legends:5V5!</h4>
-        <p>Top up Moba Legends: 5V5!  Diamonds in seconds! Just enter your USER ID & ZONE ID, select the value of Diamonds you wish to purchase, complete the payment, and the Diamonds will be added immediately to your account.</p>
-
-        <p style="padding: 2rem;">Download & play Moba Legends:5V5!</p>
-
-        <p><b>IMPORTANT</b>: Check your Gmae Version</p>
-        <p>Recharge Arena exclusively supports the official Mobile Legends: Bang Bang (Global) and Moba Legends: 5v5!. Please note that regional and third-party variants (such as VNG, FT, or modded APKs) run on separate servers and are not supported. Recharging for an unsupported version will result in failed delivery and lost funds.</p>
-
-        <h1 style="margin: 2rem;">Why Choose Recharge Arena?</h1>
-        <p> Ironclad Security (No Passwords Needed)</p>
-        <ul>
-            <li>We never ask for your login details. Simply enter your Player ID to top up securely. Your game account stays strictly in your hands.</li>
-        </ul>
-        <p>No Negative Balances</p>
-        <ul>
-            <li>We deliver legitimate, fully paid in-game currency. What you buy is permanently yours zero risk of your diamonds being revoked.</li>
-        </ul>
-        <p> Instant Delivery & Guest Checkout</p>
-        <ul>
-            <li>Don't miss out on time-limited game events. Our automated fulfillment system ensures your top-ups arrive in minutes, not hours. Plus, you can jump straight into the action with our quick Guest Checkout—no account required.</li>
-        </ul>
-        <p> Secure, Frictionless Payments</p>
-        <ul>
-            <li>Enjoy a seamless checkout. Your transactions are protected by trusted, encrypted payment gateways, complete with native support for your preferred UPI apps.</li>
-        </ul>
-        <p>  Zero Conversion Fees</p>
-        <ul>
-            <li>Maximum value with absolute transparency. You pay exactly what you see—no hidden charges or conversion markups.</li>
-        </ul>
-        <p> Fair Refunds & Lightning-Fast Support</p>
-        <ul>
-            <li>Real help when you need it. We resolve tickets and disputes rapidly. If a technical error or payment failure occurs on our end, our transparent 48-hour refund policy ensures you get your money back without jumping through impossible hoops.</li>
-        </ul>
-        <p> 100% Ban-Free & ToS Compliant</p>
-        <ul>
-            <li>We operate legally and strictly respect the official guidelines of developers like Moonton. We prohibit unauthorized sourcing, ensuring your game account is always safe.</li>
-        </ul>
-    </div>
-    <div class="right_section">
         <div class="section1">
             <h2 style="color: white;font-size: 1.3rem;">Enter User details</h2>
             <input type="text" bind:value={Id} placeholder="Enter ID" />
@@ -81,8 +39,8 @@
         </div>
         <div class="section2">
             <h2 style="color: white;font-size: 1.3rem;margin: 0.85rem">Select Amount</h2>
-            <h4 style="font-weight: bold;">Special Bundle - Not Available for iOS Users</h4>
-            <p>Purchase Special Bundle to claim great value, precious rewards!</p>
+            <h4 style="font-weight: bold;">Special Bundle</h4>
+
             <div class="card_container">
                 <div class="card">
                     <img src={monthly} alt="">
@@ -97,8 +55,7 @@
                     <p class="discount">₹ 99</p>
                 </div>
             </div>
-            <h4 style="font-weight: bold;">Double Diamond - Not a First Recharge Benefit on Recharge Arena.</h4>
-            <p>Double Diamond Bonus is available if you have not purchased the 50/100/250/500 pack on any platform before. Note: This is not a first recharge benefit on Recharge Arena. Please check the in-game Diamond section for availability before purchasing.</p>
+            <h4 style="font-weight: bold;">Double Diamond</h4>
             <div class="card_container">
                 <div class="card">
                     <img src={D3} alt="">
@@ -126,7 +83,7 @@
                 </div>
             </div>
             <h4 style="font-weight: bold;">Weekly Diamond Pass</h4>
-            <p>Weekly Diamond Pass offers instant Diamonds and Crystal of Aurora at the best value.</p>
+           
             <div class="card_container">
                 <div class="card">
                     <img src={Pass} alt="">
@@ -320,59 +277,25 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 <style>
+    
+    .banner{
+        width: 100%;
+    }
+
+    .banner img{
+        width: 100%;
+        height: 50vh;
+        padding: 0.5rem;
+    }
+    
     .container{
         margin: 8rem;
         display: grid;
-        grid-template-columns: 35% 65%;
         gap: 20px;
-        padding-left: 5rem;
         font-family: "Bricolage Grotesque",sans-serif;
-    }
-
-    .left_section1{
-        grid-column: 1;
-        grid-row: 1;
-        color: white;
-        background-color: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        padding: 1.5rem;
-    }
-
-    .left_section1 h2{
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-
-    .left_section2{
-        grid-column: 1;
-        grid-row: 2;
-        color: white;
-        height: 135vh;
-        background-color: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        padding: 1.5rem;
-    }
-
-    .left_section2 h1{
-        font-size: 2.2rem;
-        font-family: Bricolage Grotesque;
-    }
-
-    .left_section2 ul{
-        list-style-type: disc;
-    }
-
-    .right_section {
-        grid-column: 2;
-        grid-row: 1 / 3;
-        display: grid;
-        gap: 20px;
     }
 
     .section1{
@@ -401,18 +324,20 @@
     .card_container{
         display: grid;
         grid-template-columns: 20% 20% 20% 20% 20%;
-        gap: 0.5rem;
+        gap: 1rem;
         font-size: 0.85rem;
     }
 
     .card{
-        width: 15vh;
-        height: 21vh;
         font-size: 0.85rem;
         background-color: #1e234a;
         color: white;
         text-align: center;
         padding: 1rem;
+    }
+
+    .card img{
+        padding-left: 4.5rem;
     }
 
     .discount{
@@ -427,6 +352,11 @@
         padding: 2rem;
         color: white;
         border-radius: 1rem;
+    }
+
+    .section3 input{
+        width: 50%;
+        margin: 2.5rem 0;
     }
 
     .payment_container{
@@ -448,43 +378,30 @@
     }
 
     @media (max-width: 768px) {
-      .container {
-          display: grid !important;
-          grid-template-columns: 1fr;
-          grid-template-areas:
-              "top"
-              "mid"
-              "last";
-          padding: 2rem;
-          margin: 0;
-          margin-top: 5rem;
-      }
 
-      .left_section1 {
-          grid-area: top;
+        .container{
+            margin: 0;
+            padding: 1.5rem;
+        }
+
+      .banner {
           width: 100%;
       }
 
-      .right_section {
-          grid-area: mid;
-          width: 100%;
-      }
-
-      .left_section2 {
-          grid-area: last;
-          width: 100%;
-          height: 100%;
-          margin-bottom: 2rem;
-      }
+      .banner img{
+        width: 100%;
+        height: 30vh;
+        padding: 0.5rem;
+    }
 
       .section1{
-          height: 30vh;
+          height: 35vh;
           background-color: #151a3b;
           padding: 2rem;
           border-radius: 1rem;
       }
 
-      input{
+      .section1 input{
           width: 100%;
           padding: 1.3rem;
           margin: 1rem 0;
@@ -517,6 +434,18 @@
           text-align: center;
           padding: .2rem;
       }
+
+      .card img{
+        padding: 0;
+    }
+
+    .section3{
+        height: 45vh;
+    }
+
+    .section3 input{
+        width: 100%;
+    }
 
       .payment_container{
           display: flex;
