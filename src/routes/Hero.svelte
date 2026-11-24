@@ -3,14 +3,8 @@
 import { type EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel, { type EmblaCarouselSvelteType } from 'embla-carousel-svelte'
 import Autoplay from "embla-carousel-autoplay"
-import Hero1 from "#lib/assets/hero.jpg"
-import Hero1Mobile from "#lib/assets/hero1-mobile.jpeg"
-import Hero2 from "#lib/assets/hero2.jpeg"
-import Hero2Mobile from "#lib/assets/hero2-mobile.jpeg"
-import Hero3 from "#lib/assets/hero3.jpeg"
-import Hero3Mobile from "#lib/assets/hero3-mobile.jpeg"
-import Hero4 from "#lib/assets/hero4.jpeg"
-import Hero4Mobile from "#lib/assets/hero4-mobile.jpeg"
+import HeroCard from '#lib/components/HeroCard.svelte';
+import { fetchHeroCards } from '#lib/utils/api.ts';
 
 let emblaApi: EmblaCarouselSvelteType;
 let options: EmblaOptionsType = {
@@ -18,13 +12,15 @@ let options: EmblaOptionsType = {
   align: 'center'
 };
 
+const heroes = fetchHeroCards();
+
 const onInit = (event: CustomEvent<EmblaCarouselSvelteType>) => {
   emblaApi = event.detail
 }
 
 </script>
 
-<div class="embla z-10">
+<div class="embla z-10 p-2">
   <div
     class="embla__viewport"
     onemblaInit={onInit}
@@ -39,23 +35,20 @@ const onInit = (event: CustomEvent<EmblaCarouselSvelteType>) => {
       ],
     }}
   >
-    <div class="embla__container">
-      <div class="embla__slide p-0 overflow-hidden">
-        <img src={Hero1} alt="" class="w-full h-full object-fill hidden md:block">
-        <img src={Hero1Mobile} alt="" class="w-full h-full object-fill md:hidden">
-      </div>
-      <div class="embla__slide p-0 overflow-hidden">
-        <img src={Hero2} alt="" class="w-full h-full object-fill hidden md:block">
-        <img src={Hero2Mobile} alt="" class="w-full h-full object-fill md:hidden">
-      </div>
-      <div class="embla__slide p-0 overflow-hidden">
-        <img src={Hero3} alt="" class="w-full h-full object-fill hidden md:block">
-        <img src={Hero3Mobile} alt="" class="w-full h-full object-fill md:hidden">
-      </div>
-      <div class="embla__slide p-0 overflow-hidden">
-        <img src={Hero4} alt="" class="w-full h-full object-fill hidden md:block">
-        <img src={Hero4Mobile} alt="" class="w-full h-full object-fill md:hidden">
-      </div>
+    <div class="embla__container gap-2">
+      {#await heroes}
+        {#each Array(5) as _}
+          <div class="embla__slide p-0 overflow-hidden">
+            <div class="relative w-full aspect-square sm:aspect-video md:aspect-21/9 bg-muted animate-pulse rounded-lg"></div>
+          </div>
+        {/each}
+      {:then heroes} 
+        {#each heroes as hero}
+          <div class="embla__slide p-0 overflow-hidden">
+            <HeroCard {hero} />
+          </div>
+        {/each}
+      {/await}
     </div>
   </div>
 </div>

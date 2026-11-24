@@ -1,7 +1,11 @@
-import { mockHomePageCards } from "#lib/mocks/common.ts";
+import { mockGames } from "#lib/mocks/game.ts";
+import { mockHeroes } from "#lib/mocks/hero.ts";
 
-import type { HomePageCard } from "#lib/types/common.ts";
+import type { HomePageCard } from "#lib/types/game.ts";
+import type { Hero } from "#lib/types/hero.ts";
 import { mlbbUserReqErr, type MlbbTargetAccount } from "#lib/types/mlbb.ts";
+
+const delay = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const fetchMlbbAccount = async (id: string, server: string): Promise<MlbbTargetAccount> => {
   //https://api.isan.eu.org/nickname/ml?id={id}&zone={server}
@@ -16,5 +20,11 @@ export const fetchMlbbAccount = async (id: string, server: string): Promise<Mlbb
 }
 
 export const fetchHomePageCards = async (): Promise<HomePageCard[]> => {
-  return mockHomePageCards;
+  await delay(5000);
+  return mockGames;
+}
+
+export const fetchHeroCards = async (): Promise<Hero[]> => {
+  await delay(5000);
+  return mockHeroes
 }

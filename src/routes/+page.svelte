@@ -14,8 +14,6 @@ import Footer from "#lib/components/Footer.svelte";
 
 <Navigation />
 
-<div class="mt-16"></div>
-
 <Hero />
 
 <CardsSection />

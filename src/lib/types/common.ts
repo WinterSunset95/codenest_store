@@ -1,16 +1,6 @@
 // This file contains data types and interfaces that are common across all games/products
 import type { FieldValue, Timestamp } from 'firebase/firestore';
 
-const Routes = ['#', 'mlbb'] as const;
-type Route = (typeof Routes)[number];
-
-// Common card type for root route
-export interface HomePageCard {
-  image: string,
-  label: string,
-  page: Route,
-}
-
 /**
  * Use FirestoreTimestamp for reading docs from Firestore.
  * Use FirestoreWriteTimestamp when writing with serverTimestamp().
