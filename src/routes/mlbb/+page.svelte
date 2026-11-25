@@ -16,8 +16,14 @@
     import GooglePay from "#lib/assets/google_pay.png"
     import Upi from "#lib/assets/upi.png"
     import payTm from "#lib/assets/paytm-icon.png"
-    let Id = $state('');
+    import { fetchMlbbAccount } from "#lib/utils/api.ts";
+    let id = $state('');
     let server = $state('');
+
+    async function searchAccount() {
+        const result = await fetchMlbbAccount(id, server);
+        console.log(result);
+    }
     let Email = $state('');
 </script>
 
@@ -33,9 +39,12 @@
 
 <div class="container">
         <div class="section1">
-            <h2 style="color: white;font-size: 1.3rem;">Enter User details</h2>
-            <input type="text" bind:value={Id} placeholder="Enter ID" />
-            <input type="text" bind:value={server} placeholder="Enter Server" />
+            <h2>Enter User Details</h2>
+
+            <input type="text" bind:value={id} placeholder="Enter ID"/>
+            <input type="text" bind:value={server} placeholder="Enter Server"/>
+
+            <button onclick={searchAccount}>Search</button>
         </div>
         <div class="section2">
             <h2 style="color: white;font-size: 1.3rem;margin: 0.85rem">Select Amount</h2>
@@ -298,12 +307,48 @@
         font-family: "Bricolage Grotesque",sans-serif;
     }
 
-    .section1{
-        height: 30vh;
-        background-color: #151a3b;
-        padding: 3rem;
-        border-radius: 1rem;
+    .section1 {
+    min-height: 30vh;
+    height: auto;
+    background-color: #151a3b;
+    padding: 2rem;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
     }
+
+    .section1 button {
+        width: 20vh;
+       display: block;
+       visibility: visible;
+       opacity: 1;
+       background-color: #ffffff;
+       color: #151a3b;
+       height: 50px;
+       padding: 0.8rem 2rem;
+       border: none;
+       border-radius: 2rem;
+       cursor: pointer;
+    }
+
+    .section1 input {
+    display: block;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+    user-select: text;
+    opacity: 1;
+    visibility: visible;
+    background: white;
+    color: black;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
 
     input{
         width: 100%;
@@ -395,7 +440,7 @@
     }
 
       .section1{
-          height: 35vh;
+          min-height: 35vh;
           background-color: #151a3b;
           padding: 2rem;
           border-radius: 1rem;
