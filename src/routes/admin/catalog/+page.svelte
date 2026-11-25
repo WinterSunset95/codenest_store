@@ -10,10 +10,12 @@
     writeBatch,
   } from 'firebase/firestore';
   import { toast } from 'svelte-sonner';
-  import { db } from '#lib/firebase.ts';
-  import { DB_PATHS } from '#lib/db-paths.ts';
+  import { db, storage } from '#lib/firebase.ts';
+  import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+  import LoaderCircleIcon from '@lucide/svelte/icons/loader-circle';
+  import { DB_PATHS, STORAGE_PATHS } from '#lib/db-paths.ts';
   import { authStore } from '#lib/stores/auth.svelte.ts';
-  import type { GameConfig, GameSlug, Sku, SkuSecret, StoreEvent } from '#lib/types/index.ts';
+  import type { GameConfig, GameSlug, Sku, SkuSecret, StoreEvent } from '#lib/types/catalog.ts';
   import * as Tabs from '#lib/components/ui/tabs/index.ts';
   import * as Table from '#lib/components/ui/table/index.ts';
   import * as Dialog from '#lib/components/ui/dialog/index.ts';
@@ -37,8 +39,12 @@
   let evGame = $state<GameSlug>('mlbb');
   let evTitle = $state('');
   let evSubtitle = $state('');
-  let evBannerDesktop = $state('');
   let evPriority = $state(1);
+
+  // New File Upload State
+  let evBannerDesktopFile = $state<File | null>(null);
+  let evBannerMobileFile = $state<File | null>(null);
+  let creatingEvent = $state(false);
 
   async function loadCatalog() {
     const [evSnap, skuSnap, secSnap] = await Promise.all([
@@ -85,32 +91,54 @@
   async function createEvent(e: SubmitEvent) {
     e.preventDefault();
     const id = evId.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-');
-    if (!id || !evTitle.trim()) return;
 
-    await setDoc(doc(db, DB_PATHS.events, id), {
-      id,
-      gameSlug: evGame,
-      title: evTitle.trim(),
-      subtitle: evSubtitle.trim(),
-      bannerDesktopUrl: evBannerDesktop.trim(),
-      bannerMobileUrl: evBannerDesktop.trim(),
-      isEvent: true,
-      showOnHomepage: true,
-      homepagePriority: Number(evPriority) || 1,
-      startsAt: null,
-      endsAt: null,
-      isActive: true,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
-    });
+    if (!id || !evTitle.trim() || !evBannerDesktopFile || !evBannerMobileFile) {
+      toast.error("Please fill all required fields and attach both banners.");
+      return;
+    }
 
-    toast.success(`Created event "${evTitle}".`);
-    eventModalOpen = false;
-    evId = '';
-    evTitle = '';
-    evSubtitle = '';
-    evBannerDesktop = '';
-    await loadCatalog();
+    creatingEvent = true;
+    try {
+      // 1. Upload Desktop Banner
+      const desktopRef = ref(storage, STORAGE_PATHS.banners(id, `desktop_${evBannerDesktopFile.name}`));
+      await uploadBytes(desktopRef, evBannerDesktopFile);
+      const desktopUrl = await getDownloadURL(desktopRef);
+
+      // 2. Upload Mobile Banner
+      const mobileRef = ref(storage, STORAGE_PATHS.banners(id, `mobile_${evBannerMobileFile.name}`));
+      await uploadBytes(mobileRef, evBannerMobileFile);
+      const mobileUrl = await getDownloadURL(mobileRef);
+
+      // 3. Write to Firestore CMS
+      await setDoc(doc(db, DB_PATHS.events, id), {
+          id,
+          gameSlug: evGame,
+          title: evTitle.trim(),
+          subtitle: evSubtitle.trim(),
+          bannerDesktopUrl: desktopUrl,
+          bannerMobileUrl: mobileUrl,
+          isEvent: true,
+          showOnHomepage: true,
+          homepagePriority: Number(evPriority) || 1,
+          startsAt: null,
+          endsAt: null,
+          isActive: true,
+          createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp(),
+          });
+
+      toast.success(`Created event "${evTitle}".`);
+      eventModalOpen = false;
+
+      // Reset form
+      evId = ''; evTitle = ''; evSubtitle = ''; 
+      evBannerDesktopFile = null; evBannerMobileFile = null;
+      await loadCatalog();
+    } catch (err) {
+      toast.error((err as Error).message || 'Failed to create event.');
+    } finally {
+      creatingEvent = false;
+    }
   }
 
   /** Compiles active Games, Events, and SKUs into the 1-read public storefront manifest. */
@@ -292,15 +320,39 @@
         <Label for="ev-subtitle">Subtitle</Label>
         <Input id="ev-subtitle" placeholder="Best ₹ rates for 250 Diamond Task" bind:value={evSubtitle} />
       </div>
-      <div class="flex flex-col gap-1">
-        <Label for="ev-banner">Banner Image URL</Label>
-        <Input id="ev-banner" placeholder="https://..." bind:value={evBannerDesktop} />
+      <div class="grid grid-cols-2 gap-3">
+        <div class="flex flex-col gap-1">
+          <Label for="ev-banner-desktop">Desktop Banner (16:9 or 21:9)</Label>
+          <Input 
+            id="ev-banner-desktop" 
+            type="file" 
+            accept="image/*" 
+            onchange={(e) => evBannerDesktopFile = e.currentTarget.files?.[0] ?? null} 
+            required 
+          />
+        </div>
+        <div class="flex flex-col gap-1">
+          <Label for="ev-banner-mobile">Mobile Banner (1:1 or 4:5)</Label>
+          <Input 
+            id="ev-banner-mobile" 
+            type="file" 
+            accept="image/*" 
+            onchange={(e) => evBannerMobileFile = e.currentTarget.files?.[0] ?? null} 
+            required 
+          />
+        </div>
       </div>
+      
       <Dialog.Footer class="mt-2">
-        <Button type="button" variant="outline" onclick={() => (eventModalOpen = false)}>
+        <Button type="button" variant="outline" onclick={() => (eventModalOpen = false)} disabled={creatingEvent}>
           Cancel
         </Button>
-        <Button type="submit">Save Event</Button>
+        <Button type="submit" disabled={creatingEvent}>
+          {#if creatingEvent}
+            <LoaderCircleIcon class="mr-2 size-4 animate-spin" />
+          {/if}
+          Save Event
+        </Button>
       </Dialog.Footer>
     </form>
   </Dialog.Content>

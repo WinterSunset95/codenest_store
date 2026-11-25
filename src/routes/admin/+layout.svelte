@@ -55,6 +55,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Admin CMS</title>
+</svelte:head>
+
 {#if authStore.loading}
   <div class="flex h-screen items-center justify-center">
     <LoaderCircleIcon class="size-6 animate-spin text-muted-foreground" />

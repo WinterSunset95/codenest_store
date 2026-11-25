@@ -14,7 +14,7 @@
   import { db } from '#lib/firebase.ts';
   import { DB_PATHS } from '#lib/db-paths.ts';
   import { authStore } from '#lib/stores/auth.svelte.ts';
-  import type { Order, OrderStatus, RejectionReasonCode, SkuSecret } from '#lib/types/index.ts';
+  import type { Order, OrderStatus, RejectionReasonCode, SkuSecret } from '#lib/types/order.ts';
   import * as Tabs from '#lib/components/ui/tabs/index.ts';
   import * as Table from '#lib/components/ui/table/index.ts';
   import * as Sheet from '#lib/components/ui/sheet/index.ts';

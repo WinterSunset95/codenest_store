@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
+import { getStorage, connectStorageEmulator } from "firebase/storage";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -22,12 +23,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app)
+export const storage = getStorage(app)
 auth.tenantId = import.meta.env.VITE_FIREBASE_AUTH_TENANT_ID;
 
 if (import.meta.env.DEV) {
   try {
     connectAuthEmulator(auth, "http://127.0.0.1:9099");
     connectFirestoreEmulator(db, '127.0.0.1', 8080);
+    connectStorageEmulator(storage, '127.0.0.1', 9199);
   } catch (e) {
     alert("Failed to connect to firebase emulator")
   }

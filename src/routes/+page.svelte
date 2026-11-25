@@ -9,6 +9,10 @@
 
 </script>
 
+<svelte:head>
+  <title>CodeNest Store</title>
+</svelte:head>
+
 <Navigation />
 
 <main class="p-4">
