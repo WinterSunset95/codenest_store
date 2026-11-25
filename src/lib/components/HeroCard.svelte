@@ -16,7 +16,7 @@
     Tablet (sm): aspect-video (16:9)
     Desktop (md): aspect-[21/9] (Ultra-wide banner)
   -->
-  <div class="relative w-full aspect-square sm:aspect-video md:aspect-21/9 bg-muted">
+  <div class="relative w-full aspect-4/3 sm:aspect-video md:aspect-21/9 bg-muted">
     
     <!-- The picture element handles art direction natively -->
     <picture>

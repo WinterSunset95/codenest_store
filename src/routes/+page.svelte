@@ -1,10 +1,12 @@
 <script lang="ts">
 
-import Navigation from "#lib/components/Navigation.svelte";
-import Hero from "./Hero.svelte";
-import CardsSection from "./CardsSection.svelte";
-import bg from "#lib/assets/homepagebg.webp";
-import Footer from "#lib/components/Footer.svelte";
+  import Navigation from "#lib/components/Navigation.svelte";
+  import Hero from "./Hero.svelte";
+  import CardsSection from "./CardsSection.svelte";
+  import bg from "#lib/assets/homepagebg.webp";
+  import Footer from "#lib/components/Footer.svelte";
+	import PopularTopups from "./PopularTopups.svelte";
+	import HowItWorks from "#lib/components/HowItWorks.svelte";
 
 </script>
 
@@ -14,9 +16,15 @@ import Footer from "#lib/components/Footer.svelte";
 
 <Navigation />
 
-<Hero />
+<main class="p-4">
+  <Hero />
 
-<CardsSection />
+  <CardsSection />
+
+  <PopularTopups />
+
+  <HowItWorks />
+</main>
 
 <Footer />
 

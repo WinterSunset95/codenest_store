@@ -10,7 +10,13 @@ let cards = $derived.by(async () => {
 
 </script>
 
-<section class="w-full flex flex-col p-4">
+<section class="w-full flex flex-col">
+  <header class="flex items-center justify-between gap-2 pb-4 pt-6">
+    <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
+      Choose Your Game
+    </h2>
+    <span class="text-sm font-medium text-muted-foreground">4 games live</span>
+  </header>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-2 gap-gutter-md items-stretch">
     {#await cards}
       {#each Array(4) as _}

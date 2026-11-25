@@ -20,9 +20,9 @@ const onInit = (event: CustomEvent<EmblaCarouselSvelteType>) => {
 
 </script>
 
-<div class="embla z-10 p-2">
+<div class="embla z-10">
   <div
-    class="embla__viewport"
+    class="embla__viewport rounded-lg"
     onemblaInit={onInit}
     use:useEmblaCarousel={{
       options: options,

@@ -1,13 +1,21 @@
 // #lib/data/mockHeroes.ts
 import type { Hero } from '#lib/types/hero.ts';
+import Hero1 from '#lib/assets/hero.jpg'
+import Hero2 from '#lib/assets/hero2.jpeg'
+import Hero3 from '#lib/assets/hero3.jpeg'
+import Hero4 from '#lib/assets/hero4.jpeg'
+import Hero1Mobile from '#lib/assets/hero1-mobile.jpeg'
+import Hero2Mobile from '#lib/assets/hero2-mobile.jpeg'
+import Hero3Mobile from '#lib/assets/hero3-mobile.jpeg'
+import Hero4Mobile from '#lib/assets/hero4-mobile.jpeg'
 
 export const mockHeroes: Hero[] = [
   {
     id: "evt-mlbb-01",
     title: "Game top-ups, paid with Razorpay.",
     subtitle: "Instant INR top-ups for MLBB, Magic Chess, BGMI & Genshin.",
-    imageDesktopUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2100&h=900&auto=format&fit=crop",
-    imageMobileUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000&h=1000&auto=format&fit=crop",
+    imageDesktopUrl: Hero1,
+    imageMobileUrl: Hero1Mobile,
     url: "/mlbb",
     gameBadge: "MLBB Recharge Event",
     discountBadge: "Up to 18% Off"
@@ -16,8 +24,8 @@ export const mockHeroes: Hero[] = [
     id: "evt-bgmi-02",
     title: "Dominate the Battlegrounds.",
     subtitle: "Get bonus UC instantly delivered to your account.",
-    imageDesktopUrl: "https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=2100&h=900&auto=format&fit=crop",
-    imageMobileUrl: "https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=1000&h=1000&auto=format&fit=crop",
+    imageDesktopUrl: Hero2,
+    imageMobileUrl: Hero2Mobile,
     url: "/bgmi",
     gameBadge: "BGMI UC Rush",
     discountBadge: "Bonus 60 UC"
@@ -26,8 +34,8 @@ export const mockHeroes: Hero[] = [
     id: "evt-genshin-03",
     title: "Blessing of the Welkin Moon.",
     subtitle: "Secure your daily Primogems at the best rates in India.",
-    imageDesktopUrl: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2100&h=900&auto=format&fit=crop",
-    imageMobileUrl: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1000&h=1000&auto=format&fit=crop",
+    imageDesktopUrl: Hero3,
+    imageMobileUrl: Hero3Mobile,
     url: "/genshin",
     gameBadge: "Genshin Impact",
   },
@@ -35,8 +43,8 @@ export const mockHeroes: Hero[] = [
     id: "evt-valo-04",
     title: "Unlock the latest Battlepass.",
     subtitle: "Valorant Points delivered directly via Riot ID.",
-    imageDesktopUrl: "https://images.unsplash.com/photo-1552820728-8b83bb6b7738?q=80&w=2100&h=900&auto=format&fit=crop",
-    imageMobileUrl: "https://images.unsplash.com/photo-1552820728-8b83bb6b7738?q=80&w=1000&h=1000&auto=format&fit=crop",
+    imageDesktopUrl: Hero4,
+    imageMobileUrl: Hero4Mobile,
     url: "/valorant",
     gameBadge: "Valorant",
     discountBadge: "Instant Delivery"
