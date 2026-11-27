@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import Navigation from "#lib/components/Navigation.svelte";
     import bg from "#lib/assets/mlbb_bg.jpeg"
     import banner from "#lib/assets/games-banner.webp"
@@ -17,12 +17,39 @@
     import Upi from "#lib/assets/upi.png"
     import payTm from "#lib/assets/paytm-icon.png"
     import { fetchMlbbAccount } from "#lib/utils/api.ts";
+    import type {MlbbTargetAccount} from '#lib/types/mlbb.ts'
     let id = $state('');
     let server = $state('');
 
+    let account = $state<MlbbTargetAccount | null>(null);
+    let loading = $state(false);
+    let error = $state('');
+
     async function searchAccount() {
-        const result = await fetchMlbbAccount(id, server);
-        console.log(result);
+        if(!id.trim() || !server.trim()){
+            error = "please enter both Id and Server ";
+            account = null;
+            return;
+        }
+
+        loading = true;
+        error = '';
+        account = null;
+
+        try {
+            const result =  await fetchMlbbAccount(id,server);
+            if(result.success){
+                account = result;
+            } else{
+                error = "Account not found . Check your details."
+            }
+        } catch(e) {
+            error = "Something went wrong. Please try again"
+            console.error(e);
+        } finally {
+            loading = false
+        }
+
     }
     let Email = $state('');
 </script>
@@ -44,7 +71,22 @@
             <input type="text" bind:value={id} placeholder="Enter ID"/>
             <input type="text" bind:value={server} placeholder="Enter Server"/>
 
-            <button onclick={searchAccount}>Search</button>
+            <button onclick={searchAccount} disabled={loading}>
+                {loading ? 'Verifying...' : 'Search'}
+            </button>
+            
+            {#if loading}
+                <p>Verifying account...</p>
+            {:else if error}
+                <p class="error">{error}</p>
+            {:else if account}
+                <div class="account-result">
+                    <h3>Account Verified ✓</h3>
+                    <p>Username: {account.name}</p>
+                    <p>Player ID: {account.id}</p>
+                    <p>Server ID: {account.server}</p>
+                </div>
+            {/if}
         </div>
         <div class="section2">
             <h2 style="color: white;font-size: 1.3rem;margin: 0.85rem">Select Amount</h2>
